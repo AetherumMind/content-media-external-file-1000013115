@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lionfire Access Gate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Orbitron', sans-serif;
+        background: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
+        color: #ffd700;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      .container {
+        border: 2px solid #ffd700;
+        border-radius: 20px;
+        padding: 2rem;
+        max-width: 500px;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.85);
+        box-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
+      }
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      input {
+        padding: 0.5rem;
+        width: 80%;
+        font-size: 1rem;
+        margin: 1rem 0;
+      }
+      button {
+        background-color: #ffd700;
+        border: none;
+        padding: 0.75rem 2rem;
+        font-size: 1rem;
+        cursor: pointer;
+        border-radius: 10px;
+        transition: background 0.3s ease;
+      }
+      button:hover {
+        background-color: #e6c200;
+      }
+      .message {
+        margin-top: 1rem;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Lionfire Gate</h1>
+      <p>Enter your divine access token</p>
+      <input type="text" id="token" placeholder="LF1-ΔxK9-Zion|7a" />
+      <br />
+      <button onclick="checkToken()">Unlock Gateway</button>
+      <div class="message" id="message"></div>
+    </div>
+
+    <script>
+      function checkToken() {
+        const token = document.getElementById('token').value;
+        const message = document.getElementById('message');
+        if (token === 'LF1-ΔxK9-Zion|7a') {
+          message.innerHTML = '🛡️ Access Granted. Redirecting...';
+          setTimeout(() => {
+            window.location.href = '/thank-you';
+          }, 2000);
+        } else {
+          message.innerHTML = '❌ Invalid token. Please try again.';
+        }
+      }
+    </script>
+  </body>
+</html>
